@@ -8,6 +8,8 @@ The SEC maintains EDGAR weblogs showing which IP addresses have accessed which d
 As a data engineer, the main role for this activity is to work on the streaming data pipeline, perform some analysis and hand over the information to the front-end development team.
 
 # Details
-## Input
+## 1. Input
+We have two input files. One is log.csv which contains all the requests with each line representing a single request with format as follows:
+ip,date,time,zone,cik,accession,extention,code,size,idx,norefer,noagent,find,crawler,browser
 
 
