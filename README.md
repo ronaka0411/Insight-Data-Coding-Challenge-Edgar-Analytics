@@ -7,7 +7,11 @@ The SEC maintains EDGAR weblogs showing which IP addresses have accessed which d
 # Summary
 As a data engineer, the main role for this activity is to work on the streaming data pipeline, perform some analysis and hand over the information to the front-end development team.
 
-# Details
+# Author
+Ronak Agrawal, Graduate Engineering Assistant, New Jersey Institute of Technology, Newark, NJ, USA
+Email: ronakagrawal04@gmail.com
+
+# Approach
 ## 1. Input
 We have two input files. One is log.csv which contains all the requests with each line representing a single request with format as follows: ip,date,time,zone,cik,accession,extention,code,size,idx,norefer,noagent,find,crawler,browser. Anpther input file is inactivity_period.txt which contains the number of seconds after which a user session is ended, that is a default(threshold) value for a session to end.
 
@@ -18,14 +22,20 @@ We need to list out each session with following information: ip, session_start_t
 Here I have used python 3 to develop this application. Each line is explained with proper flow and comments. As a recent grad the code may look a bit obvious about few things, but this will help all the beginners as well, to understand the code.
 
 ## 4. Implementation
-The program reads in the .csv file line by line and to ignore the first line which is assumed to be the header field, I have implemented flags. We can always use the index of each column from this operation. The program reads the input file inactivity_period and stores the value of inactivity_period. Here I have converted the date and time values in each line/field of the .csv file into struct_time using datetime function, which basically gives a tuple of all the date and time values together in the format specified in the argument of datetime function. This can be useful in further process. The major role played by defining local and global variables for this activity, and to know the scope of each variable while each line is executed in the code. 
+The program reads in the .csv file line by line and to ignore the first line which is assumed to be the header field, I have implemented flags. We can always use the index of each column from this operation. The program reads the input file inactivity_period and stores the value of inactivity_period. Here I have converted the date and time values in each line/field of the .csv file into struct_time using datetime function, which basically gives a tuple of all the date and time values together in the format specified in the argument of datetime function. This can be useful in further process. We need to make sure the output file exists in the respective directory. There is a major role played by defining local and global variables for this activity, and to know the scope of each variable while each line is executed in the code. I used Python 3 IDLE which comes with Python 3, for implementation of this code
 Here the sessions are created when following two events occur:
 1. When the user requests for the time greater than inactivity period the sessionizer, creates a session whose duration will be equal to inactivity period. 
 2. When we reach at the end of the file, all the user IPs are sessionized irrespective of the inactivity period, here the duration of the session can be more than the inactivity period. 
 
 ## 5. Difficulties
-The first challenge here was to decide the data structure for the output data. Here each session written to output file is first based on the order in which it is created and if simultaneously more sessions are created then the order is based on the order in which they appear in the input file. I had first started with making a dictionary of each active and expired user (session). But with that I had to sort the dict keys based on the order they were created. Here the order of session is important as well. Thus is would become much complicated. So then I used a list of lists which is basically a 2D array. Here the order is intact and the deletion of active sessions is also easier process.
+The first challenge here was to decide the data structure for the output data. Here each session written to output file is first based on the order in which it is created and if simultaneously more sessions are created then the order is based on the order in which they appear in the input file. I had first started with making a dictionary of each active and expired user (session). But with that I had to sort the dict keys based on the order they were created. Here the order of session is important as well. Thus is would become much complicated. So then I used a list of lists which is basically a 2D array. Here the order is intact and the deletion of active sessions is also easier process. The challenge did not need to bother about which document is requested or what to do if we have repeated document request, which did not complicate the program much.
 
+# Depemdencies
+Python 3 (sys,datetime packages)
+Bash shell
 
+# Run Instruction
+Download the files in the respective folders as shown in this repo. Run the 'run.sh' file in the terminal. I have also posted the initial testcase and one another test case with some bigger .csv file.
 
-
+# Motivation
+This exercise has motivated me alot in many ways. As recent Grad and having passion for Python and SQL, my aim is to withstand opportunities and challenges in the field of Data Engineering. This challenge has inspired me to do so.
