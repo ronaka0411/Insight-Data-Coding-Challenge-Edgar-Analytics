@@ -32,10 +32,11 @@ The first challenge here was to decide the data structure for the output data. H
 
 # Dependencies
 Python 3 (sys,datetime packages)
-Bash shell
+Bash shell with python installed in it
 
 # Run Instruction
 Download the files in the respective folders as shown in this repo. Run the 'run.sh' file in the terminal. I have also posted the initial testcase and one another test case with some bigger .csv file.
+My second test case runs well in the windows terminal, find some issues with bash running environment.
 
 # Motivation
 This exercise has motivated me alot in many ways. As recent Grad and having passion for Python and SQL, my aim is to withstand opportunities and challenges in the field of Data Engineering. This challenge has inspired me to do so.
