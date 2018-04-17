@@ -35,8 +35,13 @@ Python 3 (sys,datetime packages)
 Bash shell with python installed in it
 
 # Run Instruction
-Download the files in the respective folders as shown in this repo. Run the 'run.sh' file in the terminal. I have also posted the initial testcase and one another test case with some bigger .csv file.
-My second test case runs well in the windows terminal, find some issues with bash running environment.
+Download the files in the respective folders as shown in this repo. 
+To run it in windows command prompt, make sure python 3 is installed and also the Python3 bin folder is in the ENVIRONMENT PATH variable.
+Run as: python ./src/sessionize.py ./input/log.csv ./input/inactivity_period.txt ./output/sessionization.txt
+
+I have also posted the initial testcase and one another test case with some more user requests in the .csv file.
+
+I learned about bash programming for this challenge itself. I installed Git Bash, and then ran all the run.sh files by using following command: $sh run.sh
 
 # Motivation
 This exercise has motivated me alot in many ways. As recent Grad and having passion for Python and SQL, my aim is to withstand opportunities and challenges in the field of Data Engineering. This challenge has inspired me to do so.
