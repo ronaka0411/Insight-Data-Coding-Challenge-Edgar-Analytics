@@ -30,7 +30,7 @@ Here the sessions are created when following two events occur:
 ## 5. Difficulties
 The first challenge here was to decide the data structure for the output data. Here each session written to output file is first based on the order in which it is created and if simultaneously more sessions are created then the order is based on the order in which they appear in the input file. I had first started with making a dictionary of each active and expired user (session). But with that I had to sort the dict keys based on the order they were created. Here the order of session is important as well. Thus is would become much complicated. So then I used a list of lists which is basically a 2D array. Here the order is intact and the deletion of active sessions is also easier process. The challenge did not need to bother about which document is requested or what to do if we have repeated document request, which did not complicate the program much.
 
-# Depemdencies
+# Dependencies
 Python 3 (sys,datetime packages)
 Bash shell
 
